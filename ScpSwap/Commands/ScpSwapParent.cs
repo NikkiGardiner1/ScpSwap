@@ -56,6 +56,12 @@ namespace ScpSwap.Commands
                 return false;
             }
 
+            if (playerSender.CheckPermission("scpswap.command"))
+            {
+                response = "You do not have permission to execute this command."
+                return false;
+            }
+
             if (!Round.IsStarted)
             {
                 response = "The round has not yet started.";
