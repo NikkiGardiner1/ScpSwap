@@ -39,7 +39,7 @@ namespace ScpSwap
         public override Version RequiredExiledVersion { get; } = new Version(8, 7, 2);
 
         /// <inheritdoc />
-        public override Version Version { get; } = new Version(1, 1, 7);
+        public override Version Version { get; } = new Version(1, 1, 8);
 
         /// <inheritdoc />
         public override void OnEnabled()
