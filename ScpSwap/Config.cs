@@ -65,5 +65,12 @@ namespace ScpSwap
         {
             RoleTypeId.Scp0492,
         };
+
+        /// <summary>
+        /// Enables/Disables the SCP Swap plugin based off of permissions. Permission is "scpswap.allowed"
+        /// </summary>
+        [Description(
+            "Enables/Disables the plugin for users based off of a permission they have, the permission is scpswap.allowed")]
+        public bool AllowUserSwapByPermission { get; set; } = false;
     }
 }
