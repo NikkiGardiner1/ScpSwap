@@ -66,7 +66,7 @@ namespace ScpSwap
             RoleTypeId.Scp0492,
         };
         
-        [Description("How much health in a percentage the SCP needs to be able to swap")]
-        public int RequiredHealthPercent { get; set; } = 95;
+        /*[Description("How much health in a percentage the SCP needs to be able to swap")]
+        public int RequiredHealthPercent { get; set; } = 95;*/
     }
 }
