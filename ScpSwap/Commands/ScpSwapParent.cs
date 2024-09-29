@@ -5,6 +5,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using Exiled.Permissions.Extensions;
+
 namespace ScpSwap.Commands
 {
     using System;
@@ -72,6 +74,15 @@ namespace ScpSwap.Commands
             {
                 response = $"Usage: .{Command} ScpNumber";
                 return false;
+            }
+
+            if (Plugin.Instance.Config.AllowUserSwapByPermission)
+            {
+                if (!playerSender.CheckPermission(("scpswap.allowed")))
+                {
+                    response = "You do not have permission to use this command";
+                    return false;
+                }
             }
 
             if (!playerSender.IsScp && ValidSwaps.GetCustom(playerSender) == null)

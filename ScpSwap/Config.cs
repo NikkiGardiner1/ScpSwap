@@ -65,8 +65,12 @@ namespace ScpSwap
         {
             RoleTypeId.Scp0492,
         };
-        
-        /*[Description("How much health in a percentage the SCP needs to be able to swap")]
-        public int RequiredHealthPercent { get; set; } = 95;*/
+
+        /// <summary>
+        /// Enables/Disables the SCP Swap plugin based off of permissions. Permission is "scpswap.allowed"
+        /// </summary>
+        [Description(
+            "Enables/Disables the plugin for users based off of a permission they have, the permission is scpswap.allowed")]
+        public bool AllowUserSwapByPermission { get; set; } = false;
     }
 }
