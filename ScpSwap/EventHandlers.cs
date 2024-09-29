@@ -51,5 +51,10 @@ namespace ScpSwap
         {
             ValidSwaps.Refresh();
         }
+
+        /*public void OnPlayerLeave(LeftEventArgs ev)
+        {
+            VolunteerSwap.ScpLeft(Player scpPlayer);
+        }*/
     }
 }
