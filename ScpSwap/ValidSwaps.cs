@@ -127,7 +127,7 @@ namespace ScpSwap
 
             foreach (KeyValuePair<string, RoleTypeId> kvp in Plugin.Instance.Translation.TranslatableSwaps)
             {
-                if ((Plugin.Instance.Config.BlacklistedScps != null && Plugin.Instance.Config.BlacklistedScps.Contains(kvp.Value))
+                if ((Plugin.Instance.Config.BlacklistedSwapToScps != null && Plugin.Instance.Config.BlacklistedSwapToScps.Contains(kvp.Value))
                     || kvp.Value.GetTeam() != Team.SCPs)
                     continue;
 
@@ -147,7 +147,7 @@ namespace ScpSwap
             DefaultSwapsValue.Clear();
             foreach (RoleTypeId role in Enum.GetValues(typeof(RoleTypeId)))
             {
-                if ((Plugin.Instance.Config.BlacklistedScps != null && Plugin.Instance.Config.BlacklistedScps.Contains(role))
+                if ((Plugin.Instance.Config.BlacklistedSwapToScps != null && Plugin.Instance.Config.BlacklistedSwapToScps.Contains(role))
                     || role.GetTeam() != Team.SCPs)
                     continue;
 

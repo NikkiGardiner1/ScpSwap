@@ -46,7 +46,7 @@ namespace ScpSwap
         /// Gets or sets a collection of roles blacklisted from being swapped to.
         /// </summary>
         [Description("A collection of roles blacklisted from being swapped to.")]
-        public RoleTypeId[] BlacklistedScps { get; set; } =
+        public RoleTypeId[] BlacklistedSwapToScps { get; set; } =
         {
             RoleTypeId.Scp0492,
         };
@@ -67,10 +67,37 @@ namespace ScpSwap
         };
 
         /// <summary>
+        /// Enables/Disables SCPs/Humans swapping off or swapping onto SCPs
+        /// </summary>
+        [Description("Allow for human and volunteering (going off and coming on as SCPs")]
+        public bool AllowVolunteerAndHuman { get; set; } = true;
+
+        /// <summary>
+        /// Enables/Disables Humans that becomes SCPs to swapping to other SCPs
+        /// </summary>
+        [Description("Should players that swap onto SCPs be able to swap?")]
+        public bool VolunteersCanScpSwapToOtherScps { get; set; } = true;
+        
+        /// <summary>
         /// Enables/Disables the SCP Swap plugin based off of permissions. Permission is "scpswap.allowed"
         /// </summary>
         [Description(
-            "Enables/Disables the plugin for users based off of a permission they have, the permission is scpswap.allowed")]
+            "Enables/Disables the plugin for users based off of a permission they have, the permission is scpswap.allowed (Covers both Swapping & Volunteering")]
         public bool AllowUserSwapByPermission { get; set; } = false;
+
+        [Description("Preserve 079 XP on swap?")] 
+        public static bool Preserve079XpOnSwap { get; set; } = true;
+        
+        [Description("The maximum time after the round start, in seconds, that a quitting SCP can cause the volunteer opportunity announcement (defaults to 60)")]
+        public static int QuitCutoff { get; set; } = 60;
+
+        [Description("The maximum time after the round start, in seconds, that a player can use the .volunteer command (defaults to 90)")]
+        public static int ReplaceCutoff { get; set; } = 90;
+
+        [Description("The required percentage of health (0-100) the SCP must have had to be eligible for replacement. Defaults to 95 (no percent sign)")]
+        public static int RequiredHealthPercentage { get; set; } = 95;
+
+        [Description("How long (in seconds) after the first player volunteers should the SCP be replaced")]
+        public int LotteryPeriodSeconds { get; set; } = 10;
     }
 }

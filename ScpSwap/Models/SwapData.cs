@@ -5,6 +5,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using Exiled.API.Features.Roles;
+
 namespace ScpSwap.Models
 {
     using Exiled.API.Features;
@@ -20,6 +22,9 @@ namespace ScpSwap.Models
         private readonly RoleTypeId role;
         private readonly Vector3 position;
         private readonly float health;
+        private int level;
+        private int exp;
+        private object scp079Role;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SwapData"/> class.
@@ -30,6 +35,14 @@ namespace ScpSwap.Models
             role = player.Role;
             position = player.Position;
             health = player.Health;
+            if (Config.Preserve079XpOnSwap)
+            {
+                if (player.Role.Is(out Scp079Role scp079Role))
+                {
+                    level = scp079Role.Level;
+                    exp = scp079Role.Experience;
+                }
+            }
             customSwap = ValidSwaps.GetCustom(player);
         }
 
@@ -46,6 +59,14 @@ namespace ScpSwap.Models
 
             player.Position = position;
             player.Health = health;
+            if (Config.Preserve079XpOnSwap)
+            {
+                if (player.Role.Is(out Scp079Role scp079Role))
+                {
+                    scp079Role.Level = level;
+                    scp079Role.Experience = exp;
+                }
+            }
         }
     }
 }
