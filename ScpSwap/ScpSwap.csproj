@@ -16,6 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(EXILED_REFERENCES)\Assembly-CSharp-Publicized.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>$(EXILED_REFERENCES)\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
@@ -31,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EXILED-OFFICIAL" Version="8.12.2" />
+    <PackageReference Include="ExMod.Exiled" Version="9.0.0-alpha.4" />
   </ItemGroup>
 
 </Project>
